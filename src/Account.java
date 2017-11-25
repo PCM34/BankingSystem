@@ -1,6 +1,7 @@
 public class Account {
   private String firstName;
   private String lastName;
+  private String password;
   private int Balance;
   private int accountNum;
 
@@ -26,6 +27,18 @@ public class Account {
 
   public int getBalance() {
     return Balance;
+  }
+
+  public void setBalance(int Balance) {
+    this.Balance = Balance;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 }
