@@ -1,4 +1,5 @@
 public class Account {
+  private String UserName;
   private String firstName;
   private String lastName;
   private String password;
@@ -19,6 +20,10 @@ public class Account {
 
   public String getLastName() {
     return lastName;
+  }
+
+  public String getUserName() {
+    return UserName;
   }
 
   public int getAccountNum() {
