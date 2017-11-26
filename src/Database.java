@@ -21,4 +21,10 @@ public class Database {
       if (ac.getAccountNum() == DataListIndex.getAccountNum()) return DataListIndex;
     return null;
   }
+
+  public boolean checkCredentials(String UserName, String passwd) {
+    for (Account ac:dataList)
+      if (ac.getUserName().equals(UserName) && ac.getPassword().equals(passwd)) return true;
+    return false;
+  }
 }
