@@ -16,9 +16,9 @@ public class Database {
     // TODO Check if delAccount works for given context
   }
 
-  public Account getAccount(Account ac) {
+  public Account getAccount(String UserName) {
     for (Account DataListIndex : dataList)
-      if (ac.getAccountNum() == DataListIndex.getAccountNum()) return DataListIndex;
+      if (DataListIndex.getUserName().equals(UserName)) return DataListIndex;
     return null;
   }
 
