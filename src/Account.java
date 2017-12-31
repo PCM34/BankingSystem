@@ -3,7 +3,7 @@ public class Account {
   private String firstName;
   private String lastName;
   private String password;
-  private int Balance;
+  private double Balance;
   private int accountNum;
 
   public Account(String fullName) {
@@ -30,11 +30,11 @@ public class Account {
     return accountNum;
   }
 
-  public int getBalance() {
+  public double getBalance() {
     return Balance;
   }
 
-  public void setBalance(int Balance) {
+  public void setBalance(double Balance) {
     this.Balance = Balance;
   }
 

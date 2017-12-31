@@ -39,6 +39,7 @@ public class Main {
 
     switch (choice) {
       case "1": // TODO Create main menu logic
+        System.out.println("Balance: $" + ac.getBalance());
         break;
     }
     // TODO Create option to create account.
