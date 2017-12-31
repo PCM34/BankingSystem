@@ -41,6 +41,17 @@ public class Main {
       case "1": // TODO Create main menu logic
         System.out.println("Balance: $" + ac.getBalance());
         break;
+      case "2":
+        break;
+      case "3":
+        if (db.delAccount(ac))
+          System.out.println("Account successfully deleted");
+        else
+          System.out.println("Deletion failed, please try again.");
+        break;
+      default:
+        System.out.println("Invalid menu option");
+        break;
     }
     // TODO Create option to create account.
   }
