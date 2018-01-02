@@ -6,9 +6,11 @@ public class Account {
   private double Balance;
   private int accountNum;
 
-  public Account(String fullName) {
+  Account(String fullName, String UsrName, String UsrPassword) {
     firstName = fullName.substring(0, fullName.indexOf(" "));
     lastName = fullName.substring(fullName.indexOf(" ")+1);
+    UserName = UsrName;
+    password = UsrPassword;
     Balance = 0;
     //Account num logic to be finalized. Now proof of concept.
     accountNum = (int) ((900000000 * Math.random()) + 10000000);
