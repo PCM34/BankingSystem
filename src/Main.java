@@ -1,29 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) {
-    Scanner inpt = new Scanner(System.in);
-    Database db = new Database();
-    Account ac = null;
-    boolean loginSucceeded = false;
+  private static  Database db = new Database();
+  private static Scanner inpt = new Scanner(System.in);
+  private static boolean loginSucceeded = false;
+  private static Main main = new Main();
 
+  public static void main(String[] args) {
+    Account ac = null;
     System.out.println("Welcome to Bluetech Banking");
     System.out.println("----------------------------------------");
 
     do {
       System.out.println("Please Enter your information: ");
       System.out.print("Username: ");
-      String usrName = inpt.next(); // TODO Sanitize Input
+      String usrName = inpt.next().trim();
       System.out.print("Password: ");
       String usrPasswd = inpt.next();
 
-      if (db.checkCredentials(usrName, usrPasswd)) {
-        System.out.println("Login succeeded\n");
-        loginSucceeded = true;
-        ac = db.getAccount(usrName);
-      } else {
-        System.out.println("Login failed. Please try again\n");
-      }
+      ac = main.authenticate(usrName, usrPasswd);
     } while (!loginSucceeded);
 
     String choice;
@@ -54,5 +49,15 @@ public class Main {
         break;
     }
     // TODO Create option to create account.
+  }
+  private Account authenticate(String usrName, String usrPasswd) {
+    if (db.checkCredentials(usrName, usrPasswd)) {
+      System.out.println("Login succeeded\n");
+      loginSucceeded = true;
+      return db.getAccount(usrName);
+    } else {
+      System.out.println("Login failed. Please try again\n");
+      return null;
+    }
   }
 }
