@@ -5,9 +5,9 @@ public class Main {
   private static Scanner inpt = new Scanner(System.in);
   private static boolean loginSucceeded = false;
   private static Main main = new Main();
+  private static Account ac;
 
   public static void main(String[] args) {
-    Account ac;
     System.out.println("Welcome to Bluetech Banking");
     System.out.println("----------------------------------------");
     System.out.println("  1. Login");
@@ -52,6 +52,14 @@ public class Main {
         System.out.println("Balance: $" + ac.getBalance());
         break;
       case "2":
+        System.out.println("Transfer Funds:\n----------------------------------------");
+        System.out.println("Current account number: " + ac.getAccountNum());
+        System.out.print("Destination account number: ");
+        int reciveNum = inpt.nextInt();
+        System.out.print("Amount: $");
+        double amnt = inpt.nextDouble();
+
+        main.transferFunds(reciveNum, amnt);
         break;
       case "3":
         if (db.delAccount(ac))
@@ -74,6 +82,17 @@ public class Main {
     } else {
       System.out.println("Login failed. Please try again\n");
       return null;
+    }
+  }
+
+  private void transferFunds(int acctNum, double amnt) {
+    Account targetAccnt = db.searchAccount(acctNum);
+    try {
+      targetAccnt.setBalance(targetAccnt.getBalance() + amnt);
+      ac.setBalance(ac.getBalance()-amnt);
+      System.out.println("Transfer Successful");
+    } catch (Exception e) {
+      System.out.println("Account not found. Please try again");
     }
   }
 }
