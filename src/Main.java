@@ -19,6 +19,7 @@ public class Main {
       System.out.println("Please Enter your information: ");
       System.out.print("Full Name: ");
       String fullName = inpt.next();
+      inpt.next();
       System.out.print("Username: ");
       String usrName = inpt.next().trim();
       System.out.print("Password: ");
@@ -28,7 +29,7 @@ public class Main {
       db.addAccount(act);
     }
     do {
-      System.out.println("Please Enter your Login information: ");
+      System.out.println("\nPlease Enter your Login information: ");
       System.out.print("Username: ");
       String usrName = inpt.next().trim();
       System.out.print("Password: ");
@@ -38,7 +39,7 @@ public class Main {
     } while (!loginSucceeded);
 
     String choice;
-    System.out.println("Welcome " + ac.getFirstName() + " " + ac.getLastName());
+    System.out.println("Welcome " + ac.getFullName());
     System.out.println("Account number:" + ac.getAccountNum());
     System.out.println("----------------------------------------");
     System.out.println("  1. View Balance");
@@ -48,7 +49,7 @@ public class Main {
     choice = inpt.next();
 
     switch (choice) {
-      case "1": // TODO Create main menu logic
+      case "1":
         System.out.println("Balance: $" + ac.getBalance());
         break;
       case "2":
@@ -72,7 +73,6 @@ public class Main {
         break;
     }
   }
-  // TODO Create option to create account.
 
   private Account authenticate(String usrName, String usrPasswd) {
     if (db.checkCredentials(usrName, usrPasswd)) {

@@ -7,13 +7,12 @@ class Database {
     dataList = new ArrayList<>();
   }
 
-  boolean addAccount(Account ac) {
-    return dataList.add(ac);
+  void addAccount(Account ac) {
+    dataList.add(ac);
   }
 
   boolean delAccount(Account ac) {
     return dataList.remove(ac);
-    // TODO Check if delAccount works for given context
   }
 
   Account getAccount(String UserName) {

@@ -1,14 +1,12 @@
 public class Account {
   private String UserName;
-  private String firstName;
-  private String lastName;
+  private String fullName;
   private String password;
   private double Balance;
   private int accountNum;
 
   Account(String fullName, String UsrName, String UsrPassword) {
-    firstName = fullName.substring(0, fullName.indexOf(" "));
-    lastName = fullName.substring(fullName.indexOf(" ")+1);
+    this.fullName = fullName;
     UserName = UsrName;
     password = UsrPassword;
     Balance = 0;
@@ -16,12 +14,8 @@ public class Account {
     accountNum = (int) ((900000000 * Math.random()) + 10000000);
   }
 
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public String getLastName() {
-    return lastName;
+  public String getFullName() {
+    return fullName;
   }
 
   public String getUserName() {
