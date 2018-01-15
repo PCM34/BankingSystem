@@ -45,10 +45,13 @@ public class Main {
       System.out.println("----------------------------------------");
       System.out.println("  1. View Balance");
       System.out.println("  2. Transfer funds"); // More options to be implemented
-      System.out.println("  3. Delete account");
-      System.out.println("  4. Exit/Logout");
+      System.out.println("  3. Deposit funds");
+      System.out.println("  4. Withdraw funds");
+      System.out.println("  5. Delete account");
+      System.out.println("  6. Exit/Logout");
       System.out.print("Please select an option: ");
       choice = inpt.next();
+      System.out.println(); //For spacing
 
       switch (choice) {
         case "1":
@@ -65,19 +68,32 @@ public class Main {
           main.transferFunds(reciveNum, amnt);
           break;
         case "3":
+          System.out.print("How much would like to deposit? $");
+          double deposit = inpt.nextDouble();
+          ac.setBalance(deposit + ac.getBalance());
+          System.out.println("Balance is now: $" + ac.getBalance());
+          break;
+        case "4":
+          System.out.print("How much would like to withdraw? $");
+          double withdraw = inpt.nextDouble();
+          ac.setBalance(ac.getBalance() - withdraw);
+          System.out.println("Balance is now: $" + ac.getBalance());
+          break;
+        case "5":
           if (db.delAccount(ac))
             System.out.println("Account successfully deleted");
           else
             System.out.println("Deletion failed, please try again.");
           break;
-        case "4":
+        case "6":
           System.out.println("Thank you for using BlueTech Banking!");
           break;
         default:
           System.out.println("Invalid menu option");
           break;
       }
-    } while (!(choice.equals("4") || choice.equals("3")));
+      System.out.println();
+    } while (!(choice.equals("5") || choice.equals("6")));
   }
 
   private Account authenticate(String usrName, String usrPasswd) {
