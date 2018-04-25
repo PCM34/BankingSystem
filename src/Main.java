@@ -96,6 +96,15 @@ public class Main {
     } while (!(choice.equals("5") || choice.equals("6")));
   }
 
+  /**
+   * authenticate checks the database for valid credentials. Once it finds an
+   * existing pair of credentials it makes loginSucceeded = true. In order to
+   * make to login screen cease to repeat.
+   *
+   * @param usrName       username passed from the user
+   * @param usrPasswd     password passed from the user
+   * @return              an account for the main method to be able to access
+   */
   private Account authenticate(String usrName, String usrPasswd) {
     if (db.checkCredentials(usrName, usrPasswd)) {
       System.out.println("Login succeeded\n");
@@ -107,6 +116,15 @@ public class Main {
     }
   }
 
+  /**
+   * transferFunds checks the database for the account tied to acctNum. Once it
+   * finds the account, the transfer occurs with addition and subtraction. If
+   * transferFunds does not find the account an error message is printed and
+   * handled.
+   *
+   * @param acctNum       the account number the database has to find.
+   * @param amnt          the amount to be transferred to acctNum.
+   */
   private void transferFunds(int acctNum, double amnt) {
     Account targetAccnt = db.searchAccount(acctNum);
     try {
