@@ -18,23 +18,23 @@ class Account {
     return fullName;
   }
 
-  public String getUserName() {
+  String getUserName() {
     return UserName;
   }
 
-  public int getAccountNum() {
+  int getAccountNum() {
     return accountNum;
   }
 
-  public double getBalance() {
+  double getBalance() {
     return Balance;
   }
 
-  public void setBalance(double Balance) {
+  void setBalance(double Balance) {
     this.Balance = Balance;
   }
 
-  public String getPassword() {
+  String getPassword() {
     return password;
   }
 
