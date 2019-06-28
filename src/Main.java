@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-@SuppressWarnings("CanBeFinal")
 class Main {
   private static  Database db = new Database();
   private static final Scanner inpt = new Scanner(System.in);
