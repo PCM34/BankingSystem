@@ -1,9 +1,9 @@
-public class Account {
-  private String UserName;
-  private String fullName;
+class Account {
+  private final String UserName;
+  private final String fullName;
   private String password;
   private double Balance;
-  private int accountNum;
+  private final int accountNum;
 
   Account(String fullName, String UsrName, String UsrPassword) {
     this.fullName = fullName;
@@ -14,7 +14,7 @@ public class Account {
     accountNum = (int) ((900000000 * Math.random()) + 10000000);
   }
 
-  public String getFullName() {
+  String getFullName() {
     return fullName;
   }
 

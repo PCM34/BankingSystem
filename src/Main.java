@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-public class Main {
+@SuppressWarnings("CanBeFinal")
+class Main {
   private static  Database db = new Database();
-  private static Scanner inpt = new Scanner(System.in);
+  private static final Scanner inpt = new Scanner(System.in);
   private static boolean loginSucceeded = false;
   private static Main main = new Main();
   private static Account ac;
@@ -14,7 +15,7 @@ public class Main {
     System.out.println("  2. Sign up");
     System.out.print("Please select an option: ");
     String loginChoice = inpt.next();
-    String choice = "";
+    String choice;
 
     if (loginChoice.equals("2")) {
       System.out.println("Please Enter your information: ");
@@ -40,6 +41,7 @@ public class Main {
     } while (!loginSucceeded);
 
     do {
+      assert ac != null;      // Replace assert with better error handling
       System.out.println("Welcome " + ac.getFullName());
       System.out.println("Account number:" + ac.getAccountNum());
       System.out.println("----------------------------------------");

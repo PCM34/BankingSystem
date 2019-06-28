@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+@SuppressWarnings({"SpellCheckingInspection", "CanBeFinal"})
 class Database {
   private ArrayList<Account> dataList;
 
